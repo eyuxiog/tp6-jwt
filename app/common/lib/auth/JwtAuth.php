@@ -8,6 +8,8 @@
 
 
 namespace app\common\lib\auth;
+use app\api\exception\ApiException;
+use app\common\lib\error\ApiErrDesc;
 use Lcobucci\JWT\Builder;
 use Lcobucci\JWT\Parser;
 use Lcobucci\JWT\Signer\Hmac\Sha256;
@@ -109,8 +111,12 @@ class JwtAuth
 
         if (!$this->decodeToken){
             // 把字符串转成Token对象
-            $this->decodeToken = (new Parser())->parse((string)$this->token);
-            $this->uid = $this->decodeToken->getClaim('uid');
+            try {
+                $this->decodeToken = (new Parser())->parse((string)$this->token);
+                $this->uid = $this->decodeToken->getClaim('uid');
+            } catch (\RuntimeException $e) {
+                throw new ApiException(ApiErrDesc::TOKEN_INVALID);
+            }
         }
 
         return $this->decodeToken;

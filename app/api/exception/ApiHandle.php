@@ -31,6 +31,9 @@ class ApiHandle extends Handle
      */
     public function render($request, Throwable $e): Response
     {
+        if(env('APP_DEBUG')){
+            return parent::render($request, $e);
+        }
         if ($e instanceof ApiException){
             $code = $e->getCode();
             $msg = $e->getMessage();

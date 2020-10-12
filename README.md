@@ -54,3 +54,7 @@ All rights reserved。
 ThinkPHP® 商标和著作权所有者为上海顶想信息科技有限公司。
 
 更多细节参阅 [LICENSE.txt](LICENSE.txt)
+
+
+多应用方式+API版本控制访问
+http://tp6.cn/api/v1.test/index

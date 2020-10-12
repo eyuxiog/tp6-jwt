@@ -22,6 +22,7 @@ class ApiErrDesc
     const SUCCESS = [1, 'success'];
     const UNKNOWN_ERR = [0, '未知错误'];
     const ERR_URL = [2, '请求接口不存在'];
+    const TOKEN_INVALID = [3, 'Token invalid.'];
 
     const ERR_PARAMS = [100, '参数错误'];
 

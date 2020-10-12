@@ -26,9 +26,8 @@ class CheckAuth
      */
     public function handle($request, \Closure $next)
     {
-        $token = $request->param('token');
+        $token = $request->header('token');
         if ($token){
-
             // 校验
             $jwtAuth = JwtAuth::getInstance();
             $jwtAuth->setToken($token);

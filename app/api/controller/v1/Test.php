@@ -6,7 +6,7 @@
  * Time: 16:32
  */
 
-namespace app\api\controller;
+namespace app\api\controller\v1;
 use app\api\exception\ApiException;
 use app\BaseController;
 use app\common\lib\auth\JwtAuth;
@@ -21,7 +21,7 @@ class Test extends BaseController
         // 获取jwtAuth的句柄
         $jwtAuth = JwtAuth::getInstance();
         $token = $jwtAuth->setUid(1)->encode()->getToken();
-//        dump($token);
+        echo 1;
         return $this->success(['token' => $token]);
     }
 
